@@ -1,5 +1,5 @@
 libjs-swfupload (2.2.0.1-1) unstable; urgency=low
 
-  * Initial release (Closes: #602253)
+  * Initial release (Closes: #602253, #609110)
 
  -- Christian Welzel <gawain@camlann.de>  Tue, 14 Feb 2012 17:11:09 +0100
