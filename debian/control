@@ -9,7 +9,7 @@ Vcs-Git: git://github.com/sir-gawain/debian-swfupload.git
 Vcs-Browser: https://github.com/sir-gawain/debian-swfupload
 
 Package: libjs-swfupload
-Architecture: any
+Architecture: all
 Depends: ${misc:Depends}
 Description: javascript library to use Flash's upload functionality
  SWFUpload is a JavaScript Library that wraps the Flash Player's upload
