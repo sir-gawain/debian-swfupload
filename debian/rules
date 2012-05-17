@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@
+
+build:
+	dh_testdir
+	rm plugins/SWFObject\ License.txt
+	cd Flash && as3compile -M SWFUpload -T 9 -X 300 -Y 300 -r 15 SWFUpload.as -o swfupload.swf
+
+get-orig-source:
+	uscan --no-conf --force-download --rename --repack --download-current-version --destdir=.

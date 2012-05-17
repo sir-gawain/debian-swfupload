@@ -1,0 +1,18 @@
+Description: Removing compilation error
+ Using as3compile leads to an error during compilation caused by the
+ inline comment after a regular expression. This patch removes this
+ comment.
+Author: Christian Welzel <gawain@camlann.de>
+Last-Update: 2012-05-17
+
+--- libjs-swfupload.orig/Flash/ExternalCall.as
++++ libjs-swfupload/Flash/ExternalCall.as
+@@ -99,7 +99,7 @@
+ 		}
+ 		
+ 		private static function EscapeString(message:String):String {
+-			var replacePattern:RegExp = /\\/g; //new RegExp("/\\/", "g");
++			var replacePattern:RegExp = /\\/g;
+ 			return message.replace(replacePattern, "\\\\");
+ 		}
+ 		private static function EscapeArray(message_array:Array):Array {

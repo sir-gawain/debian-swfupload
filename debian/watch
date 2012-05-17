@@ -1,0 +1,6 @@
+version=3
+opts="uversionmangle=s/\%20//g;s/_/\./g;s/v//;s/([\d\.]+)([[:alpha:]]\w+)/\1~\2/;" \
+  http://code.google.com/p/swfupload/downloads/list?can=1 .*/SWFUpload(?:_|%20)+v(.+)(?:_|%20)[Cc]ore\.(?:zip|tgz|tbz2|txz|tar\.gz|tar\.bz2|tar\.xz)
+
+# http://swfupload.googlecode.com/files/SWFUpload_v250_beta_3_core.zip
+# http://swfupload.googlecode.com/files/SWFUpload%20v2.2.0.1%20Core.zip
