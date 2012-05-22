@@ -4,13 +4,39 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+PACKAGENAME:=libjs-swfupload
+VERSION:=$(shell dpkg-parsechangelog | sed -rne 's,^Version: ([^+]+).*,\1,p')
+
+ORIG_DIR:=$(PACKAGENAME)_$(VERSION)+ds1
+BLANK_DIR:=SWFUpload\ v$(VERSION)\ Core
+
+ORIGTAR:=$(PACKAGENAME)_$(VERSION).orig.tar
+DEBTAR :=$(PACKAGENAME)_$(VERSION)+ds1.orig.tar
+
 %:
 	dh $@
 
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean
+	rm -rf tmp
+
 build:
 	dh_testdir
-	rm plugins/SWFObject\ License.txt
-	cd Flash && as3compile -M SWFUpload -T 9 -X 300 -Y 300 -r 15 SWFUpload.as -o swfupload.swf
+	mkdir tmp
+	rm -f plugins/SWFObject\ License.txt
+	cd Flash && as3compile -M SWFUpload -T 9 -X 300 -Y 300 -r 15 SWFUpload.as -o ../tmp/swfupload.swf
 
 get-orig-source:
+# get source
 	uscan --no-conf --force-download --rename --repack --download-current-version --destdir=.
+# unpack and rename
+	mkdir -p _unpack
+	tar -xzf $(ORIGTAR).gz -C _unpack
+	mv _unpack/$(BLANK_DIR) _unpack/$(ORIG_DIR)
+# remove dfsg non complient files
+	rm -f _unpack/$(ORIG_DIR)/Flash/swfupload.swf
+# repack
+	tar -cf - -C _unpack $(ORIG_DIR) | gzip -9 - > $(DEBTAR).gz
+	rm -rf _unpack
