@@ -1,9 +1,8 @@
-libjs-swfupload for Debian
---------------------------
+libjs-swfupload (2.2.0.1+ds1-1)
 
-<this file describes information about the source package, see Debian policy
-manual section 4.14. You WILL either need to modify or delete this file>
+  * Use debian/rules get-orig-source to download and repack the
+    source package.
+  * Running debian/rules get-orig-source also removes embedded prebuild
+    swfupload.swf during repacking step.
 
-
-
-
+ -- Christian Welzel <gawain@camlann.de>  Tue, 22 Feb 2012 18:11:09 +0100
