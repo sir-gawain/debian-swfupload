@@ -1,3 +1,9 @@
+libjs-swfupload (2.2.0.1+ds1-2) unstable; urgency=high
+
+  * Security fix for XSS in ExternalCall (Closes: 681323)
+
+ -- Christian Welzel <gawain@camlann.de>  Thu, 12 Jul 2012 14:52:12 +0200
+
 libjs-swfupload (2.2.0.1+ds1-1) unstable; urgency=low
 
   * Made +ds1 version of upstream source to remove prebuild swfupload.swf.
