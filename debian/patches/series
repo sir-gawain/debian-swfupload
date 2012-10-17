@@ -1,2 +1,3 @@
+workaround-as3compile-segfault.patch
 fix-CVE-2012-2399-xss.patch
 fix-externalcall.patch

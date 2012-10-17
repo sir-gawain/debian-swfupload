@@ -1,0 +1,18 @@
+Description: Adds workaround for segfault in as3compile
+ Using as3compile leads to an error during compilation on i386 which results
+ into a segfault. This patch adds a workaround to avoid the segfault.
+Author: Christian Welzel <gawain@camlann.de>
+Last-Update: 2012-10-17
+
+--- libjs-swfupload.orig/Flash/FileItem.as
++++ libjs-swfupload/Flash/FileItem.as
+@@ -105,7 +105,8 @@
+ 			return name;
+ 		}
+ 		public static function EscapeCharacter():String {
+-			return "$" + ("0000" + arguments[0].charCodeAt(0).toString(16)).substr(-4, 4);
++			var tmp: String = ("0000" + arguments[0].charCodeAt(0).toString(16));
++			return "$" + tmp.substr(-4, 4);
+ 		}
+ 		
+ 	}
