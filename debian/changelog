@@ -1,3 +1,9 @@
+libjs-swfupload (2.2.0.1+ds1-3) unstable; urgency=low
+
+  * Added workaround for as3compile segfault on i386 (Closes: 690236).
+
+ -- Christian Welzel <gawain@camlann.de>  Wed, 17 Oct 2012 12:43:00 +0200
+
 libjs-swfupload (2.2.0.1+ds1-2) unstable; urgency=high
 
   * Security fix for XSS in ExternalCall (Closes: 681323)
